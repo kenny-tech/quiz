@@ -2,6 +2,7 @@
 <?php include('navigation.php') ?>
 <div class="container">
   <h2>Login</h2>
+  <p>Please login to take quiz</p>
   <form action="/action_page.php">
     <div class="form-group">
       <label for="email">Email:</label>
