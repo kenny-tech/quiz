@@ -1,3 +1,5 @@
+<?php include('header.php'); ?>
+<?php include('navigation.php') ?>
 <div class="container">
   <h2>Login</h2>
   <form action="/action_page.php">
@@ -12,3 +14,4 @@
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
+<?php include('footer.php'); ?>
