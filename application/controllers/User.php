@@ -35,7 +35,7 @@ class User extends CI_Controller {
 				$insert_data = $this->User_model->_insert($data);
         if($insert_data)
         {
- 					$this->session->set_flashdata('successMessage','You have successfully registered. Please login to take quiz.');
+ 					$this->session->set_flashdata('successMessage','You have successfully registered. Please login to take the quiz.');
           redirect('user/login');
         }
 			}
