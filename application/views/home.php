@@ -1,14 +1,30 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Welcome to our quiz system</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-</head>
-<body>
+<?php include('header.php'); ?>
+<?php include('navigation.php') ?>
+<div class="container">
 	<h1>Quiz</h1>
-	<p>Please login to take the quiz</p>
-</body>
-</html>
+	<h4>Please <a href="<?php echo site_url(); ?>user/login">login</a> or <a href="<?php echo site_url(); ?>user/register">register</a> to take a new quiz</h4>
+
+	<h3>Already taken quiz</h3>
+	<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Score</th>
+      <th scope="col">Date taken</th>
+    </tr>
+  </thead>
+  <tbody>
+		<?php
+			if($quiz_results!=null) {
+				foreach($quiz_results as $row) { ?>
+    <tr>
+      <td><?php echo $row->score; ?></td>
+      <td><?php echo $row->created; ?></td>
+    </tr>
+	<?php } } else { ?>
+		<tr>
+      <td colspan="2">No result found</td>
+    </tr>
+	<?php } ?>
+  </tbody>
+</table>
+<?php include('footer.php'); ?>

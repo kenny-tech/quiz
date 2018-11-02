@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
 
-	function __construct() 
+	function __construct()
 	{
 		parent::__construct();
 		$this->load->model("User_model");
@@ -13,7 +13,9 @@ class User extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('login');
+		$user_id = $this->session->userdata('user_id');
+		$data['quiz_results'] = $this->User_model->get_quiz_results($user_id);
+		$this->load->view('home',$data);
 	}
 
 	public function register()
@@ -58,19 +60,19 @@ class User extends CI_Controller {
 			$this->form_validation->set_rules('email', 'Email', 'required|valid_email|xss_clean');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|required');
 
-			if($this->form_validation->run() != false) 
+			if($this->form_validation->run() != false)
 			{
 				$this->load->view('login');
-			} 
+			}
 			else
-			{   
-				//get input    
+			{
+				//get input
 				$email = $this->input->post('email');
-				$password = md5($this->input->post('password'));		 
+				$password = md5($this->input->post('password'));
 
 				//verify user
 				$verify = $this->User_model->verify_user($email,$password);
-						
+
 				if($verify!=false)
 				{
 					foreach($verify as $row)
@@ -96,7 +98,7 @@ class User extends CI_Controller {
 		else
 		{
 			$this->load->view('login');
-		}		
-	}	
+		}
+	}
 
 }
