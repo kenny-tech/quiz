@@ -20,11 +20,12 @@
             return false;
     }
 
-    function get_quiz_results($user_id)
+    function get_quiz_results()
     {
-      $this->db->select('score,created');
-      $this->db->from('students_results');
-      $this->db->where('user_id',$user_id);
+      $this->db->select('users.name,students_results.score,students_results.created');
+      $this->db->from('users');
+      $this->db->join('students_results','users.id = students_results.user_id');
+      $this->db->order_by('students_results.id','desc');
       $query = $this->db->get();
       return $query->result();
     }

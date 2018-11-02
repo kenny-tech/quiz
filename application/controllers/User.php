@@ -13,8 +13,7 @@ class User extends CI_Controller {
 
 	public function index()
 	{
-		$user_id = $this->session->userdata('user_id');
-		$data['quiz_results'] = $this->User_model->get_quiz_results($user_id);
+		$data['quiz_results'] = $this->User_model->get_quiz_results();
 		$this->load->view('home',$data);
 	}
 

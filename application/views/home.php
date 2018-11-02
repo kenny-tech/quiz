@@ -16,7 +16,8 @@
 	<table class="table">
   <thead>
     <tr>
-      <th scope="col">Score</th>
+      <th scope="col">Name</th>
+			<th scope="col">Score</th>
       <th scope="col">Date taken</th>
     </tr>
   </thead>
@@ -25,12 +26,13 @@
 			if($quiz_results!=null) {
 				foreach($quiz_results as $row) { ?>
     <tr>
-      <td><?php echo $row->score; ?></td>
+      <td><?php echo $row->name; ?></td>
+			<td><?php echo $row->score; ?></td>
       <td><?php echo $row->created; ?></td>
     </tr>
 	<?php } } else { ?>
 		<tr>
-      <td colspan="2">No result found</td>
+      <td colspan="3">No result found</td>
     </tr>
 	<?php } ?>
   </tbody>
