@@ -6,11 +6,14 @@ class Questions extends CI_Controller {
 	function __construct() 
 	{
 		parent::__construct();
+		$this->load->model("Questions_model");
 	}
 
 	public function index()
 	{
-		$this->load->view('questions');
+		$questions = $this->Questions_model->get_questions();
+		$data['result'] = $questions;
+		$this->load->view('questions',$data);
 	}
 }
 ?>
