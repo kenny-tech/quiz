@@ -50,6 +50,8 @@ class Questions extends CI_Controller {
 						'score' => $total_answer
 					);
 					$this->Questions_model->store_result($data);
+					$this->session->set_flashdata('successMessage','You scored '.$total_answer .' for the just concluded quiz');
+					redirect('user');
 		}
 	}
 }

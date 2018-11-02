@@ -5,6 +5,14 @@
 	<h4>Please <a href="<?php echo site_url(); ?>user/login">login</a> or <a href="<?php echo site_url(); ?>user/register">register</a> to take a new quiz</h4>
 
 	<h3>Already taken quiz</h3>
+	<?php
+    if($this->session->flashdata('successMessage'))
+    {
+  ?>
+  <div class="alert alert-success" role="alert">
+    <?php echo $this->session->flashdata('successMessage'); ?>
+  </div>
+  <?php } ?>
 	<table class="table">
   <thead>
     <tr>
