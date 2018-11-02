@@ -11,7 +11,15 @@
     <?php echo $this->session->flashdata('successMessage'); ?>
   </div>
   <?php } ?>
-  <form action="/action_page.php">
+  <?php
+    if($this->session->flashdata('errorMessage'))
+    {
+  ?>
+  <div class="alert alert-danger" role="alert">
+    <?php echo $this->session->flashdata('errorMessage'); ?>
+  </div>
+  <?php } ?>
+  <?php echo form_open('user/login'); ?>
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
