@@ -9,5 +9,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<h1>Quiz</h1>
+	<p>Please login to take the quiz</p>
 </body>
 </html>

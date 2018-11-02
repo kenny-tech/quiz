@@ -2,6 +2,7 @@
 <?php include('navigation.php') ?>
 <div class="container">
   <h2>Login</h2>
+  <p>Please login to take the quiz</p>
   <?php
     if($this->session->flashdata('successMessage'))
     {
