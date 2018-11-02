@@ -2,7 +2,14 @@
 <?php include('navigation.php') ?>
 <div class="container">
   <h2>Login</h2>
-  <p>Please login to take quiz</p>
+  <?php
+    if($this->session->flashdata('successMessage'))
+    {
+  ?>
+  <div class="alert alert-success" role="alert">
+    <?php echo $this->session->flashdata('successMessage'); ?>
+  </div>
+  <?php } ?>
   <form action="/action_page.php">
     <div class="form-group">
       <label for="email">Email:</label>
